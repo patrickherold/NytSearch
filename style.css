@@ -1,0 +1,11 @@
+body {
+    background-color: #ddd;
+}
+
+.jumbotron {
+    background-color: royalblue;
+}
+
+.card {
+    width: 100%;
+}
