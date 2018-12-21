@@ -81,11 +81,7 @@
          
 
     <!--  our script .. would be moved to separate file in production -->
-    <script>
-
-
-
-
+<script>
     /**
     * pulls information from the form and build the query URL
     * @returns {string} URL for NYT API based on form inputs
@@ -125,7 +121,7 @@
         console.log("---------------\nURL: " + queryURL + "\n---------------");
         console.log(queryURL + $.param(queryParams));
         return queryURL + $.param(queryParams);
-    }
+    };
             
 
     /**
@@ -201,6 +197,11 @@
             // Append the article
             $articleList.append($articleListItem);
         }
+    };
+
+    // Function to empty out the articles
+    function clear() {
+        $("#articleSection").empty();
     }
 
 
@@ -231,14 +232,6 @@
             method: "GET"
         }).then(updatePage);
     });
-
-    // Function to empty out the articles
-    function clear() {
-        $("#articleSection").empty();
-    };
-
-
-
     </script>
 
 
