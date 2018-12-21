@@ -118,7 +118,7 @@ function updatePage(NYTData) {
 // Function to empty out the articles
 function clear() {
     $("#articleSection").empty();
-}
+};
 
 
 // Creating an AJAX call for the specific movie button being clicked
