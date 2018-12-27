@@ -2,6 +2,37 @@
 * pulls information from the form and build the query URL
 * @returns {string} URL for NYT API based on form inputs
 */
+$(document).ready(function() { 
+    // Gives the API information to the website for retrieval.
+    var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
+
+    var queryParams = {"api-key": "b9f91d369ff59547cd47b931d8cbc56b:0:74623931"};
+    
+    var currentYear = (new Date).getFullYear();
+
+    var day =(new Date).getDate();
+
+    var yesterday = day - 1;
+
+    queryParams.q = "Top Stories";
+
+    queryParams.begin_date = yesterday;
+
+    queryParams.end_date = day;
+
+
+    console.log("---------------\nURL: " + queryURL + "\n---------------");
+    console.log(queryURL + $.param(queryParams));
+    console.log(queryURL);
+
+    
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(updatePage);
+})
+
 function buildQueryURL() {
     // queryURL is the url we'll use to query the API
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?";
@@ -38,7 +69,6 @@ function buildQueryURL() {
     console.log(queryURL + $.param(queryParams));
     return queryURL + $.param(queryParams);
 };
-        
 
 /**
 * takes API data (JSON/object) and turns it into elements on the page
@@ -148,6 +178,8 @@ $("#search").on("click", function(event) {
         method: "GET"
     }).then(updatePage);
 });
+
+
 
 
 
